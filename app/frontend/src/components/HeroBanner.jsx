@@ -107,7 +107,7 @@ export default function HeroBanner() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length)
-    }, 2000)
+    }, 4000)
     return () => clearInterval(interval)
   }, [])
 
@@ -162,93 +162,121 @@ export default function HeroBanner() {
         </div>
       </div>
 
-      {/* ============ HERO SLIDESHOW ============ */}
-      <div className="relative w-full min-h-[85vh] flex items-center justify-center">
-        {/* Background Slides */}
-        {slides.map((s, i) => (
-          <div
-            key={s.id}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              i === current ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
-            }`}
-          >
-            <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient}`} />
-            <div className="absolute inset-0">
-              <img
-                src={s.image}
-                alt={s.country}
-                className={`w-full h-full object-cover transition-all duration-1000 ${
-                  i === current ? 'opacity-40 scale-100' : 'opacity-0 scale-110'
-                }`}
-              />
+      {/* ============ HERO SECTION ============ */}
+      <div className="relative w-full">
+        {/* Image Grid - Slow Moving */}
+        <div className="w-full py-8 md:py-12 px-4 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {slides.map((s, i) => {
+                const isActive = i === current
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setCurrent(i)}
+                    className={`relative group overflow-hidden rounded-2xl transition-all duration-1000 ease-in-out ${
+                      isActive
+                        ? 'ring-2 ring-emerald-400/60 scale-[1.02] shadow-xl shadow-emerald-500/10'
+                        : 'ring-1 ring-white/10 hover:ring-white/20 opacity-60 hover:opacity-80'
+                    }`}
+                    style={{ aspectRatio: '16/10' }}
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} transition-opacity duration-700`} />
+                    <img
+                      src={s.image}
+                      alt={s.country}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-[3000ms] ${
+                        isActive ? 'opacity-60 scale-100' : 'opacity-30 scale-105'
+                      }`}
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+                    
+                    {/* Content on image */}
+                    <div className="relative z-10 p-3 md:p-4 flex flex-col justify-end h-full">
+                      <div className={`flex items-center gap-2 transition-all duration-1000 ${
+                        isActive ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
+                      }`}>
+                        <span className="text-2xl md:text-3xl drop-shadow-lg">{s.flag}</span>
+                        <span className="text-white font-bold text-sm md:text-base drop-shadow-lg">
+                          {s.country}
+                        </span>
+                      </div>
+                      <p className={`text-white/70 text-xs mt-1 transition-all duration-1000 delay-200 ${
+                        isActive ? 'opacity-100' : 'opacity-0'
+                      }`}>
+                        {s.title}
+                      </p>
+                    </div>
+
+                    {/* Active indicator */}
+                    {isActive && (
+                      <div className="absolute top-2 right-2 w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50" />
+                    )}
+                  </button>
+                )
+              })}
             </div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
-          </div>
-        ))}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          {/* Slide indicator - dots */}
-          <div className="flex justify-center gap-2 mb-6">
-            {slides.map((s, i) => (
-              <button
-                key={s.id}
-                onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-500 ease-out ${
-                  i === current
-                    ? 'w-12 bg-emerald-400 shadow-lg shadow-emerald-400/50'
-                    : 'w-2 bg-white/30 hover:bg-white/50'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Flag + Country badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-5">
-            <span className="text-xl">{slide.flag}</span>
-            <span className="text-white/80 text-sm font-medium uppercase tracking-wider">
-              {slide.country}
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1
-            key={slide.id + '-title'}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl animate-fadeInUp"
-          >
-            {slide.title}
-          </h1>
-
-          {/* Description */}
-          <p
-            key={slide.id + '-desc'}
-            className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 drop-shadow-lg animate-fadeInUp animation-delay-200"
-          >
-            {slide.desc}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 animate-fadeInUp animation-delay-400">
-            <Link
-              to="/buy-data"
-              className="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3.5 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/50 hover:scale-105 hover:-translate-y-1"
-            >
-              🚀 Hadda Iibso Data
-            </Link>
-            <Link
-              to="/pricing"
-              className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl text-lg font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-            >
-              💰 Fiiri Qiimaha
-            </Link>
+            {/* Slide position indicator */}
+            <div className="flex justify-center gap-1.5 mt-4">
+              {slides.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => setCurrent(i)}
+                  className={`h-1.5 rounded-full transition-all duration-700 ${
+                    i === current ? 'w-10 bg-emerald-400' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-gray-950 via-gray-950/80 to-transparent" />
+        {/* Text Section - Wide Layout Below Images */}
+        <div className="w-full bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 pb-10 md:pb-16">
+          <div className="max-w-6xl mx-auto px-4 text-center">
+            {/* Flag + Country badge */}
+            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-4 animate-fadeInUp">
+              <span className="text-xl">{slide.flag}</span>
+              <span className="text-white/70 text-xs font-medium uppercase tracking-wider">
+                {slide.country}
+              </span>
+            </div>
+
+            {/* Big Wide Title */}
+            <h1
+              key={slide.id + '-title'}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-4 leading-[1.1] drop-shadow-2xl animate-fadeInUp max-w-5xl mx-auto"
+            >
+              {slide.title}
+            </h1>
+
+            {/* Description */}
+            <p
+              key={slide.id + '-desc'}
+              className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto mb-8 animate-fadeInUp animation-delay-200 leading-relaxed"
+            >
+              {slide.desc}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 animate-fadeInUp animation-delay-400">
+              <Link
+                to="/buy-data"
+                className="bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-bold transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/50 hover:scale-105 hover:-translate-y-1"
+              >
+                🚀 Hadda Iibso Data
+              </Link>
+              <Link
+                to="/pricing"
+                className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              >
+                💰 Fiiri Qiimaha
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* ============ OPERATORS MENU (Collapse) ============ */}
@@ -332,7 +360,7 @@ export default function HeroBanner() {
           100% { transform: translateX(-25%); }
         }
         .ticker-track {
-          animation: ticker-scroll 22s linear infinite;
+          animation: ticker-scroll 30s linear infinite;
         }
         .ticker-track:hover {
           animation-play-state: paused;
