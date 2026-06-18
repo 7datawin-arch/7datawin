@@ -174,44 +174,38 @@ export default function HeroBanner() {
                   <button
                     key={s.id}
                     onClick={() => setCurrent(i)}
-                    className={`relative group overflow-hidden rounded-2xl transition-all duration-1000 ease-in-out ${
+                    className={`relative group overflow-hidden rounded-xl transition-all duration-[4000ms] ease-in-out ${
                       isActive
-                        ? 'ring-2 ring-emerald-400/60 scale-[1.02] shadow-xl shadow-emerald-500/10'
-                        : 'ring-1 ring-white/10 hover:ring-white/20 opacity-60 hover:opacity-80'
+                        ? 'scale-100 brightness-110'
+                        : 'scale-95 brightness-75'
                     }`}
                     style={{ aspectRatio: '16/10' }}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} transition-opacity duration-700`} />
                     <img
                       src={s.image}
                       alt={s.country}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-[3000ms] ${
-                        isActive ? 'opacity-60 scale-100' : 'opacity-30 scale-105'
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-[4000ms] ${
+                        isActive ? 'opacity-100 scale-105' : 'opacity-70 scale-100'
                       }`}
                     />
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+                    {/* Simple overlay for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                     
-                    {/* Content on image */}
-                    <div className="relative z-10 p-3 md:p-4 flex flex-col justify-end h-full">
-                      <div className={`flex items-center gap-2 transition-all duration-1000 ${
-                        isActive ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
-                      }`}>
-                        <span className="text-2xl md:text-3xl drop-shadow-lg">{s.flag}</span>
-                        <span className="text-white font-bold text-sm md:text-base drop-shadow-lg">
+                    {/* Flag + Country */}
+                    <div className="relative z-10 p-2 md:p-3 flex flex-col justify-end h-full">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xl md:text-2xl">{s.flag}</span>
+                        <span className={`text-white font-semibold text-xs md:text-sm transition-all duration-1000 ${
+                          isActive ? 'opacity-100 translate-y-0' : 'opacity-80 translate-y-1'
+                        }`}>
                           {s.country}
                         </span>
                       </div>
-                      <p className={`text-white/70 text-xs mt-1 transition-all duration-1000 delay-200 ${
-                        isActive ? 'opacity-100' : 'opacity-0'
-                      }`}>
-                        {s.title}
-                      </p>
                     </div>
 
-                    {/* Active indicator */}
+                    {/* Active indicator - clean dot */}
                     {isActive && (
-                      <div className="absolute top-2 right-2 w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50" />
+                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-emerald-400 rounded-full animate-softPulse" />
                     )}
                   </button>
                 )
@@ -375,6 +369,19 @@ export default function HeroBanner() {
         }
         .animation-delay-200 { animation-delay: 0.2s; }
         .animation-delay-400 { animation-delay: 0.4s; }
+
+        @keyframes softPulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+        .animate-softPulse {
+          animation: softPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes slowZoom {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.03); }
+        }
       `}</style>
     </section>
   )
