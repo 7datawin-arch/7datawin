@@ -251,65 +251,68 @@ export default function HeroBanner() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-gray-950 via-gray-950/80 to-transparent" />
       </div>
 
-      {/* ============ OPERATORS SECTION (Collapse) ============ */}
+      {/* ============ OPERATORS MENU (Collapse) ============ */}
       <div className="max-w-6xl mx-auto px-4 -mt-20 relative z-20 pb-16">
         <div className="bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden">
 
-          {/* Collapse Header */}
+          {/* Collapse Header - short title */}
           <button
             onClick={() => setOpsOpen(!opsOpen)}
-            className="w-full flex items-center justify-between p-6 md:p-8 hover:bg-gray-800/50 transition-colors group"
+            className="w-full flex items-center justify-between p-5 md:p-6 hover:bg-gray-800/50 transition-colors group"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
-                <span className="text-emerald-400 text-sm font-bold">📡</span>
+              <div className="w-10 h-10 bg-emerald-500/15 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span className="text-emerald-400 text-lg">📡</span>
               </div>
-              <h2 className="text-xl md:text-2xl font-bold text-white text-left">
-                Shirkadaha Isgaarsiinta <span className="text-emerald-400">Geeska Afrika</span>
+              <h2 className="text-lg md:text-xl font-bold text-white text-left">
+                Shirkadaha <span className="text-emerald-400">Geeska Afrika</span>
               </h2>
             </div>
             <div className={`text-emerald-400 transition-all duration-300 group-hover:scale-110 ${opsOpen ? 'rotate-180' : ''}`}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
           </button>
 
-          {/* Operators Grid (Collapsible) */}
+          {/* Operators Menu Grid (Collapsible) */}
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${
-              opsOpen ? 'max-h-[1500px] opacity-100' : 'max-h-0 opacity-0'
+              opsOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <div className="px-6 md:px-8 pb-6 md:pb-8">
+            <div className="px-5 md:px-6 pb-6">
               {/* Country Groups */}
               {[
-                { flag: '🇸🇴', name: 'Soomaaliya', gradient: 'from-cyan-500/10 to-blue-600/5', operators: operators.filter(o => o.country === 'Soomaaliya') },
-                { flag: '🇪🇹', name: 'Itoobiya', gradient: 'from-green-500/10 to-yellow-500/5', operators: operators.filter(o => o.country === 'Itoobiya') },
-                { flag: '🇰🇪', name: 'Kenya', gradient: 'from-orange-500/10 to-red-500/5', operators: operators.filter(o => o.country === 'Kenya') },
-                { flag: '🇩🇯', name: 'Jabuuti', gradient: 'from-sky-500/10 to-blue-500/5', operators: operators.filter(o => o.country === 'Jabuuti') },
+                { flag: '🇸🇴', name: 'Soomaaliya', gradient: 'from-cyan-500/10 to-blue-600/5', border: 'border-cyan-500/20', text: 'text-cyan-300', operators: operators.filter(o => o.country === 'Soomaaliya') },
+                { flag: '🇪🇹', name: 'Itoobiya', gradient: 'from-green-500/10 to-yellow-500/5', border: 'border-green-500/20', text: 'text-yellow-300', operators: operators.filter(o => o.country === 'Itoobiya') },
+                { flag: '🇰🇪', name: 'Kenya', gradient: 'from-orange-500/10 to-red-500/5', border: 'border-red-500/20', text: 'text-orange-300', operators: operators.filter(o => o.country === 'Kenya') },
+                { flag: '🇩🇯', name: 'Jabuuti', gradient: 'from-sky-500/10 to-blue-500/5', border: 'border-sky-500/20', text: 'text-sky-300', operators: operators.filter(o => o.country === 'Jabuuti') },
               ].map((group) => (
                 group.operators.length > 0 && (
-                  <div key={group.name} className="mb-4 last:mb-0">
-                    <div className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r ${group.gradient} border border-white/5 mb-2`}>
-                      <span className="text-lg">{group.flag}</span>
-                      <span className="text-white font-bold text-sm">{group.name}</span>
+                  <div key={group.name} className="mb-5 last:mb-0">
+                    <div className={`flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r ${group.gradient} border ${group.border} mb-3`}>
+                      <span className="text-xl">{group.flag}</span>
+                      <span className={`text-sm font-bold ${group.text}`}>{group.name}</span>
+                      <span className={`text-xs ${group.text} opacity-60`}>({group.operators.length})</span>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
                       {group.operators.map((op) => (
                         <Link
                           key={op.name}
                           to="/buy-data"
-                          className="group flex items-center gap-3 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700/50 hover:border-emerald-500/50 rounded-xl px-3 py-3 md:px-4 md:py-3.5 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/10"
+                          className="flex flex-col items-center gap-2 bg-gray-800/40 hover:bg-gray-700/60 border border-gray-700/40 hover:border-emerald-500/40 rounded-2xl px-3 py-5 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-emerald-500/5 text-center group/card"
                         >
-                          <span className="text-xl md:text-2xl flex-shrink-0">{op.icon}</span>
-                          <div className="min-w-0">
-                            <span className="text-white font-semibold text-xs md:text-sm block truncate group-hover:text-emerald-300 transition-colors">
+                          <div className="w-14 h-14 bg-gray-800/80 rounded-2xl flex items-center justify-center group-hover/card:bg-emerald-500/10 group-hover/card:scale-110 transition-all duration-300 border border-gray-700/30 group-hover/card:border-emerald-500/20">
+                            <span className="text-3xl">{op.icon}</span>
+                          </div>
+                          <div>
+                            <p className="text-white font-semibold text-sm group-hover/card:text-emerald-300 transition-colors">
                               {op.name}
-                            </span>
-                            <span className="text-gray-500 text-[10px] md:text-xs">
+                            </p>
+                            <p className="text-gray-500 text-[10px]">
                               {op.flag} {op.country}
-                            </span>
+                            </p>
                           </div>
                         </Link>
                       ))}
