@@ -280,7 +280,7 @@ export default function HeroBanner() {
       </div>
 
       {/* ============ OPERATORS MENU (Collapse) ============ */}
-      <div className="max-w-6xl mx-auto px-4 -mt-20 relative z-20 pb-16">
+      <div className="max-w-6xl mx-auto px-4 mt-8 relative z-20 pb-16">
         <div className="bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden">
 
           {/* Collapse Header - short title */}
