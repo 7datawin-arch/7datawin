@@ -149,11 +149,11 @@ export default function HeroBanner() {
             {/* Subtle gradient edges to fade text in/out */}
             <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-gray-900/95 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-gray-900/95 z-10 pointer-events-none" />
-            <div className="ticker-track flex items-center gap-1 whitespace-nowrap">
-              {[...tickerItems, ...tickerItems].map((item, i) => (
+            <div className="ticker-track inline-flex items-center gap-1 whitespace-nowrap will-change-transform">
+              {[...tickerItems, ...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm drop-shadow-md">
                   <span className="text-base drop-shadow">{item.icon}</span>
-                  <span className="text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{item.name}</span>
+                  <span className="text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] whitespace-nowrap">{item.name}</span>
                   <span className="text-emerald-500/50 mx-1">▎</span>
                 </span>
               ))}
@@ -326,10 +326,10 @@ export default function HeroBanner() {
       <style>{`
         @keyframes ticker-scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-25%); }
         }
         .ticker-track {
-          animation: ticker-scroll 12s linear infinite;
+          animation: ticker-scroll 10s linear infinite;
         }
         .ticker-track:hover {
           animation-play-state: paused;
