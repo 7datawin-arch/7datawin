@@ -42,31 +42,40 @@ const slides = [
 ]
 
 const tickerItems = [
+  // 🇸🇴 Soomaaliya
   { name: 'Hormuud', icon: '📡' },
   { name: 'Telesom', icon: '📞' },
   { name: 'Somnet', icon: '🌐' },
   { name: 'Amtel', icon: '📶' },
   { name: 'Golis', icon: '🏔️' },
+  { name: 'NationLink', icon: '🌍' },
+  // 🇪🇹 Itoobiya
   { name: 'Ethio Telecom', icon: '🇪🇹' },
   { name: 'Safaricom Ethiopia', icon: '🟢' },
+  // 🇰🇪 Kenya
   { name: 'Safaricom', icon: '🟢' },
   { name: 'Airtel Kenya', icon: '🔴' },
   { name: 'Telkom Kenya', icon: '🔵' },
+  { name: 'Jamii Telecom', icon: '📶' },
+  // 🇩🇯 Jabuuti
   { name: 'Djibouti Telecom', icon: '🇩🇯' },
-  { name: 'SOMTEL Djibouti', icon: '📞' },
+  { name: 'SOMTEL', icon: '📞' },
   { name: 'Evatis', icon: '🌍' },
+  // Repeat for seamless loop
   { name: 'Hormuud', icon: '📡' },
   { name: 'Telesom', icon: '📞' },
   { name: 'Somnet', icon: '🌐' },
   { name: 'Amtel', icon: '📶' },
   { name: 'Golis', icon: '🏔️' },
+  { name: 'NationLink', icon: '🌍' },
   { name: 'Ethio Telecom', icon: '🇪🇹' },
   { name: 'Safaricom Ethiopia', icon: '🟢' },
   { name: 'Safaricom', icon: '🟢' },
   { name: 'Airtel Kenya', icon: '🔴' },
   { name: 'Telkom Kenya', icon: '🔵' },
+  { name: 'Jamii Telecom', icon: '📶' },
   { name: 'Djibouti Telecom', icon: '🇩🇯' },
-  { name: 'SOMTEL Djibouti', icon: '📞' },
+  { name: 'SOMTEL', icon: '📞' },
   { name: 'Evatis', icon: '🌍' },
 ]
 
@@ -107,22 +116,23 @@ export default function HeroBanner() {
   return (
     <section className="relative w-full overflow-hidden bg-gray-950">
       {/* ============ 7DATAWIN TICKER (sida CNN/Al Jazeera) ============ */}
-      <div className="relative z-30 w-full bg-gray-900/90 backdrop-blur-md border-b border-emerald-500/20 overflow-hidden">
+      <div className="relative z-30 w-full bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 border-b border-emerald-500/10 overflow-hidden shadow-lg shadow-black/30">
         <div className="flex items-center">
           {/* 7DataWin Logo - Circular with Shadow */}
-          <div className="flex-shrink-0 z-10 relative flex items-center justify-center px-2 py-1
-            bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600">
+          <div className="flex-shrink-0 z-10 relative flex items-center justify-center px-3 py-1.5
+            bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700
+            shadow-md shadow-emerald-900/50">
             {!logoError ? (
               <div className="flex items-center gap-2">
                 <img
                   src={logo7datawin}
                   alt="7DataWin"
-                  className="h-9 w-9 md:h-10 md:w-10 rounded-full object-cover ring-2 ring-emerald-400/50
-                    shadow-lg shadow-emerald-500/40 drop-shadow-xl"
+                  className="h-9 w-9 md:h-11 md:w-11 rounded-full object-cover ring-2 ring-emerald-400/60
+                    shadow-lg shadow-emerald-500/50 drop-shadow-xl"
                   onError={() => setLogoError(true)}
                 />
-                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wider
-                  drop-shadow-lg [text-shadow:_0_1px_3px_rgb(0_0_0_/_50%)]">
+                <span className="text-white text-xs md:text-sm font-black uppercase tracking-widest
+                  drop-shadow-lg [text-shadow:_0_2px_4px_rgb(0_0_0_/_60%)]">
                   7DataWin
                 </span>
               </div>
@@ -133,14 +143,18 @@ export default function HeroBanner() {
             )}
           </div>
 
-          {/* Scrolling Ticker */}
-          <div className="overflow-hidden flex-1 relative">
+          {/* Scrolling Ticker with better background */}
+          <div className="overflow-hidden flex-1 relative py-1.5
+            bg-gradient-to-r from-gray-900/95 via-gray-800/90 to-gray-900/95">
+            {/* Subtle gradient edges to fade text in/out */}
+            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-gray-900/95 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-r from-transparent to-gray-900/95 z-10 pointer-events-none" />
             <div className="ticker-track flex items-center gap-1 whitespace-nowrap">
               {[...tickerItems, ...tickerItems].map((item, i) => (
-                <span key={i} className="inline-flex items-center gap-1.5 px-3 py-2 text-sm">
-                  <span className="text-base">{item.icon}</span>
-                  <span className="text-gray-300 font-medium">{item.name}</span>
-                  <span className="text-gray-600 mx-1">┃</span>
+                <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm drop-shadow-md">
+                  <span className="text-base drop-shadow">{item.icon}</span>
+                  <span className="text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{item.name}</span>
+                  <span className="text-emerald-500/50 mx-1">▎</span>
                 </span>
               ))}
             </div>
