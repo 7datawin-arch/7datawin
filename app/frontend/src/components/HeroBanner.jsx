@@ -332,6 +332,131 @@ export default function HeroBanner() {
         </div>
       </div>
 
+      {/* ============ GUULAYSTAYAASHA BISHII ============ */}
+      <div className="max-w-6xl mx-auto px-4 mt-10 relative z-20">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500/10 to-emerald-500/10 border border-yellow-500/20 rounded-full px-4 py-1.5 mb-3">
+            <span className="text-yellow-400 text-sm">🏆</span>
+            <span className="text-yellow-300 text-xs font-bold uppercase tracking-wider">Guulaystayaasha Bishii</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white">
+            Wiilashii <span className="text-emerald-400">$100</span> ku Guuleystay
+          </h2>
+          <p className="text-gray-500 text-sm mt-1">Bishaan — dad somali ah oo adeegga 2 jeer iibsaday</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Winner 1 */}
+          <div className="relative group bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/40 hover:border-emerald-500/30 rounded-2xl p-5 md:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5">
+            {/* Winner badge */}
+            <div className="absolute -top-2 -right-2 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full px-3 py-1 shadow-lg shadow-yellow-500/30 flex items-center gap-1">
+              <span className="text-yellow-900 text-xs font-bold">$100</span>
+              <span className="text-white text-[10px]">🏆</span>
+            </div>
+
+            <div className="flex items-start gap-4">
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-emerald-400 to-blue-500 rounded-full flex items-center justify-center ring-2 ring-emerald-400/20 shadow-lg">
+                  <span className="text-3xl md:text-4xl">👨🏾‍💻</span>
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-white font-bold text-base md:text-lg">Cabdimalik Maxamed</h3>
+                  <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full">Winner</span>
+                </div>
+                
+                {/* Stars */}
+                <div className="flex items-center gap-0.5 mb-2">
+                  {[1,2,3,4,5].map(s => (
+                    <span key={s} className="text-yellow-400 text-sm">⭐</span>
+                  ))}
+                  <span className="text-gray-500 text-xs ml-1">5.0</span>
+                </div>
+
+                {/* Review */}
+                <div className="bg-gray-800/40 rounded-xl p-3 border border-gray-700/20">
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed italic">
+                    "Waan ka faa'iidaystay bishan! 2 jeer ayaa data ka iibsaday 7DataWin, 
+                    waxaana helay <span className="text-emerald-400 font-bold">$100</span> oo dhamaystiran. 
+                    Adeeg degdeg ah oo lagu kalsoonaan karo. 
+                    <span className="text-emerald-300">#Guul</span>"
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-gray-600 text-[10px]">📅 Bisha June 2026</span>
+                  <span className="text-gray-700 text-[10px]">•</span>
+                  <span className="text-emerald-400/60 text-[10px]">✅ Xaqiijiyay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Winner 2 */}
+          <div className="relative group bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/40 hover:border-emerald-500/30 rounded-2xl p-5 md:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5">
+            {/* Winner badge */}
+            <div className="absolute -top-2 -right-2 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full px-3 py-1 shadow-lg shadow-yellow-500/30 flex items-center gap-1">
+              <span className="text-yellow-900 text-xs font-bold">$100</span>
+              <span className="text-white text-[10px]">🏆</span>
+            </div>
+
+            <div className="flex items-start gap-4">
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center ring-2 ring-purple-400/20 shadow-lg">
+                  <span className="text-3xl md:text-4xl">👩🏾‍💻</span>
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-white font-bold text-base md:text-lg">Xaawo Ciise</h3>
+                  <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full">Winner</span>
+                </div>
+                
+                {/* Stars */}
+                <div className="flex items-center gap-0.5 mb-2">
+                  {[1,2,3,4,5].map(s => (
+                    <span key={s} className="text-yellow-400 text-sm">⭐</span>
+                  ))}
+                  <span className="text-gray-500 text-xs ml-1">5.0</span>
+                </div>
+
+                {/* Review */}
+                <div className="bg-gray-800/40 rounded-xl p-3 border border-gray-700/20">
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed italic">
+                    "Runtii waan yaabay! Markii 2-aad oo aan data ka iibsaday, $100 baa i la soo wacay. 
+                    Waxaan u talinayaa qof kasta oo Somali ah inuu 7DataWin isticmaalo. 
+                    <span className="text-emerald-400 font-bold">Mahadsanid 7DataWin!</span>"
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-gray-600 text-[10px]">📅 Bisha June 2026</span>
+                  <span className="text-gray-700 text-[10px]">•</span>
+                  <span className="text-emerald-400/60 text-[10px]">✅ Xaqiijiyay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-6">
+          <Link
+            to="/buy-data"
+            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-semibold text-sm transition-colors"
+          >
+            Adiguna ku bilow 🚀 →
+          </Link>
+        </div>
+      </div>
+
       {/* ============ OPERATORS MENU (Collapse) ============ */}
       <div className="max-w-6xl mx-auto px-4 mt-8 relative z-20 pb-16">
         <div className="bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden">
