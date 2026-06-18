@@ -1,5 +1,21 @@
 import { useState } from 'react'
-import { Smartphone, Wifi, Package, CheckCircle, Globe } from 'lucide-react'
+import { Smartphone, Package, CheckCircle } from 'lucide-react'
+
+const operatorIcons = {
+  'Hormuud': '📡',
+  'Telesom': '📞',
+  'Somnet': '🌐',
+  'Amtel': '📶',
+  'Golis': '🏔️',
+  'Ethio Telecom': '🇪🇹',
+  'Safaricom Ethiopia': '🟢',
+  'Safaricom': '🟢',
+  'Airtel Kenya': '🔴',
+  'Telkom Kenya': '🔵',
+  'Djibouti Telecom': '🇩🇯',
+  'SOMTEL Djibouti': '📞',
+  'Evatis': '🌍',
+}
 
 const countryData = {
   somalia: {
@@ -39,12 +55,25 @@ const countryData = {
     phonePlaceholder: 'e.g. 0712345678',
     phonePrefix: 'Kenya (+254)',
   },
+  djibouti: {
+    name: 'Jabuuti',
+    flag: '🇩🇯',
+    operators: ['Djibouti Telecom', 'SOMTEL Djibouti', 'Evatis'],
+    packs: {
+      'Djibouti Telecom': ['500MB - 5 DJF', '1GB - 10 DJF', '3GB - 25 DJF', '5GB - 40 DJF', '10GB - 70 DJF'],
+      'SOMTEL Djibouti': ['500MB - 6 DJF', '1GB - 12 DJF', '3GB - 30 DJF', '5GB - 50 DJF', '10GB - 80 DJF'],
+      'Evatis': ['1GB - 15 DJF', '3GB - 35 DJF', '5GB - 55 DJF', '10GB - 90 DJF'],
+    },
+    phonePlaceholder: 'e.g. 77123456',
+    phonePrefix: 'Jabuuti (+253)',
+  },
 }
 
 const countries = [
   { id: 'somalia', name: 'Soomaaliya', flag: '🇸🇴' },
   { id: 'ethiopia', name: 'Itoobiya', flag: '🇪🇹' },
   { id: 'kenya', name: 'Kenya', flag: '🇰🇪' },
+  { id: 'djibouti', name: 'Jabuuti', flag: '🇩🇯' },
 ]
 
 export default function BuyData() {
@@ -92,7 +121,7 @@ export default function BuyData() {
       </p>
 
       {/* Country Tabs */}
-      <div className="flex justify-center gap-2 mb-8">
+      <div className="flex justify-center gap-2 mb-8 flex-wrap">
         {countries.map((c) => (
           <button
             key={c.id}
@@ -134,22 +163,22 @@ export default function BuyData() {
         {/* Operator */}
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            <Wifi className="w-4 h-4 inline mr-1 text-emerald-400" />
             Shirkadda
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {data.operators.map((op) => (
               <button
                 key={op}
                 type="button"
                 onClick={() => { setSelectedOp(op); setSelectedPack('') }}
-                className={`px-4 py-3 rounded-lg text-sm font-medium border transition ${
+                className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium border transition-all duration-200 ${
                   selectedOp === op
-                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
-                    : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-gray-500'
+                    ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-500/10'
+                    : 'bg-gray-800 border-gray-700 text-gray-300 hover:border-gray-500 hover:bg-gray-750'
                 }`}
               >
-                {op}
+                <span className="text-2xl">{operatorIcons[op] || '📡'}</span>
+                <span className="font-semibold">{op}</span>
               </button>
             ))}
           </div>
