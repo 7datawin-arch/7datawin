@@ -273,6 +273,65 @@ export default function HeroBanner() {
         </div>
       </div>
 
+      {/* ============ $100 BISHKII - Loyalty Program ============ */}
+      <div className="max-w-6xl mx-auto px-4 mt-10 relative z-20">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900/60 via-emerald-800/40 to-gray-900/80 border border-emerald-500/20 shadow-2xl shadow-emerald-500/5">
+          {/* Decorative circles */}
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-emerald-400/5 rounded-full blur-2xl" />
+          
+          <div className="relative z-10 p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            {/* Left: Icon/Visual */}
+            <div className="flex-shrink-0">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-xl shadow-emerald-500/20 animate-float">
+                <span className="text-4xl md:text-5xl">💎</span>
+              </div>
+            </div>
+
+            {/* Middle: Content */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-3 py-1 mb-3">
+                <span className="text-yellow-400 text-xs">🏆</span>
+                <span className="text-emerald-300 text-xs font-semibold uppercase tracking-wider">Loyalty Program</span>
+              </div>
+              <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-2">
+                <span className="text-emerald-400">$100</span> Bishkii
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base max-w-xl leading-relaxed">
+                Qof kasta oo <span className="text-emerald-300 font-semibold">2 jeer</span> ama ka badan adeegga noo iibsada, 
+                waxaan siinaa <span className="text-emerald-400 font-bold">$100</span> bil kasta! Waa lagama maarmaan 
+                si aad uga faa'iidaysatid adeeggaaga data-da.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1">
+                  <span className="text-emerald-400 text-xs">✅</span>
+                  <span className="text-gray-400 text-xs">2 iibis +</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1">
+                  <span className="text-emerald-400 text-xs">✅</span>
+                  <span className="text-gray-400 text-xs">$100 bil kasta</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1">
+                  <span className="text-emerald-400 text-xs">✅</span>
+                  <span className="text-gray-400 text-xs">Waqti kasta</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: CTA */}
+            <div className="flex-shrink-0">
+              <Link
+                to="/pricing"
+                className="group inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/50 hover:scale-105"
+              >
+                <span>💰 Bilow</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* ============ OPERATORS MENU (Collapse) ============ */}
       <div className="max-w-6xl mx-auto px-4 mt-8 relative z-20 pb-16">
         <div className="bg-gray-900/90 backdrop-blur-xl border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden">
