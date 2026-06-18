@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import logo7datawin from '../assets/logo11.jpg'
+import logo7datawin from '../assets/logo11.png'
 
 const slides = [
   {
@@ -109,15 +109,23 @@ export default function HeroBanner() {
       {/* ============ 7DATAWIN TICKER (sida CNN/Al Jazeera) ============ */}
       <div className="relative z-30 w-full bg-gray-900/90 backdrop-blur-md border-b border-emerald-500/20 overflow-hidden">
         <div className="flex items-center">
-          {/* 7DataWin Logo */}
-          <div className="flex-shrink-0 bg-gradient-to-r from-emerald-600 to-emerald-500 px-3 py-1.5 z-10 relative flex items-center gap-2">
+          {/* 7DataWin Logo - Circular with Shadow */}
+          <div className="flex-shrink-0 z-10 relative flex items-center justify-center px-2 py-1
+            bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600">
             {!logoError ? (
-              <img
-                src={logo7datawin}
-                alt="7DataWin"
-                className="h-8 w-auto object-contain rounded"
-                onError={() => setLogoError(true)}
-              />
+              <div className="flex items-center gap-2">
+                <img
+                  src={logo7datawin}
+                  alt="7DataWin"
+                  className="h-9 w-9 md:h-10 md:w-10 rounded-full object-cover ring-2 ring-emerald-400/50
+                    shadow-lg shadow-emerald-500/40 drop-shadow-xl"
+                  onError={() => setLogoError(true)}
+                />
+                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wider
+                  drop-shadow-lg [text-shadow:_0_1px_3px_rgb(0_0_0_/_50%)]">
+                  7DataWin
+                </span>
+              </div>
             ) : (
               <span className="text-white text-xs font-bold uppercase tracking-wider whitespace-nowrap">
                 7DataWin
@@ -307,7 +315,7 @@ export default function HeroBanner() {
           100% { transform: translateX(-50%); }
         }
         .ticker-track {
-          animation: ticker-scroll 30s linear infinite;
+          animation: ticker-scroll 12s linear infinite;
         }
         .ticker-track:hover {
           animation-play-state: paused;
