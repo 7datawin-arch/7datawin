@@ -329,7 +329,7 @@ export default function HeroBanner() {
           100% { transform: translateX(-25%); }
         }
         .ticker-track {
-          animation: ticker-scroll 10s linear infinite;
+          animation: ticker-scroll 22s linear infinite;
         }
         .ticker-track:hover {
           animation-play-state: paused;
