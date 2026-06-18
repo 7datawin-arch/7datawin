@@ -1,5 +1,6 @@
 import { Shield, Zap, Globe, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import HeroBanner from '../components/HeroBanner'
 
 const features = [
   {
@@ -15,7 +16,7 @@ const features = [
   {
     icon: Globe,
     title: 'Shirkado Dhan',
-    desc: 'Hormuud, Telesom, Somnet, Amtel, Golis iyo kuwo kale',
+    desc: 'Hormuud, Telesom, Ethio Telecom, Safaricom iyo kuwo kale',
   },
   {
     icon: Users,
@@ -24,56 +25,10 @@ const features = [
   },
 ]
 
-const operators = [
-  { name: 'Hormuud', color: 'bg-green-600' },
-  { name: 'Telesom', color: 'bg-blue-600' },
-  { name: 'Somnet', color: 'bg-purple-600' },
-  { name: 'Amtel', color: 'bg-red-600' },
-  { name: 'Golis', color: 'bg-yellow-600' },
-  { name: 'Nationlink', color: 'bg-indigo-600' },
-]
-
 export default function Home() {
   return (
     <div>
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 pt-20 pb-16 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
-          Data <span className="text-emerald-400">Qiimo Jaban</span>{' '}
-          <br className="hidden md:block" />
-          Meesha Ugu Fiican
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          Ku xidhnow shirkadaha isgaarsiinta ee Soomaaliya oo dhan.
-          Iibso data qiimo jaban, hel degdeg, adeeg 24/7.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            to="/buy-data"
-            className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-xl text-lg font-bold transition"
-          >
-            Hadda Iibso Data
-          </Link>
-          <Link
-            to="/pricing"
-            className="border border-gray-600 hover:border-emerald-400 text-gray-200 hover:text-emerald-400 px-8 py-3 rounded-xl text-lg font-semibold transition"
-          >
-            Fiiri Qiimaha
-          </Link>
-        </div>
-
-        {/* Operator badges */}
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {operators.map((op) => (
-            <span
-              key={op.name}
-              className={`${op.color} bg-opacity-20 text-white border ${op.color.replace('bg-', 'border-')} border-opacity-30 px-4 py-1.5 rounded-full text-sm font-medium`}
-            >
-              {op.name}
-            </span>
-          ))}
-        </div>
-      </section>
+      <HeroBanner />
 
       {/* Features */}
       <section className="max-w-6xl mx-auto px-4 py-16">
