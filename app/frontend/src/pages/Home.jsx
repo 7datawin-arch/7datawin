@@ -51,21 +51,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Courses + Books CTA */}
       <section className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <div className="bg-gradient-to-r from-emerald-900/40 to-gray-800/40 border border-gray-700 rounded-2xl p-10">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Diyaar ma u tahay?
-          </h2>
-          <p className="text-gray-400 max-w-xl mx-auto mb-6">
-            Iibso data qiimo jaban, hel adeeg degdeg ah, uguna raaxayso internet-ka
-            si dhib la'aan ah.
-          </p>
+        <div className="grid gap-6 lg:grid-cols-2">
           <Link
-            to="/buy-data"
-            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-xl text-lg font-bold transition"
+            to="/courses"
+            className="group rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-gray-900/70 p-10 text-left shadow-xl shadow-emerald-500/10 transition hover:-translate-y-1"
           >
-            Hadda Bilow
+            <div className="inline-flex items-center gap-3 mb-4 text-emerald-300">
+              <span className="rounded-full bg-emerald-500/10 p-3">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4L20 8L12 12L4 8L12 4Z" fill="currentColor"/><path d="M12 12L20 16L12 20L4 16L12 12Z" fill="currentColor"/></svg>
+              </span>
+              <span className="text-sm uppercase tracking-[0.3em] font-semibold">Koorsooyin AI</span>
+            </div>
+            <h2 className="text-3xl font-extrabold text-white mb-3">Hel Koorsooyin AI Bilaash ah</h2>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Macaamiisha data-ga naga iibsada waxay helayaan koorsooyin AI bilaash ah iyo casharro muuqaal ah oo ay ku baran karaan chatbot, automation, iyo sawir AI.
+            </p>
+            <div className="inline-flex items-center gap-2 text-emerald-400 font-semibold">
+              <span>Faahfaahinta gal</span>
+              <span className="transform transition group-hover:translate-x-1">→</span>
+            </div>
+          </Link>
+
+          <Link
+            to="/books"
+            className="group rounded-3xl border border-sky-500/20 bg-gradient-to-br from-sky-500/10 to-gray-900/70 p-10 text-left shadow-xl shadow-sky-500/10 transition hover:-translate-y-1"
+          >
+            <div className="inline-flex items-center gap-3 mb-4 text-sky-300">
+              <span className="rounded-full bg-sky-500/10 p-3">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4H18V20H6V4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M6 8H18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M6 12H18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              </span>
+              <span className="text-sm uppercase tracking-[0.3em] font-semibold">Buugaagta IT</span>
+            </div>
+            <h2 className="text-3xl font-extrabold text-white mb-3">Buugaag casharro fudud</h2>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Hel buugaag qiimo jaban oo ku saabsan computer, barnaamijyo, AI, iyo ChatGPT, oo kaa caawinaya inaad barato si degdeg ah.
+            </p>
+            <div className="inline-flex items-center gap-2 text-sky-300 font-semibold">
+              <span>Wax dheeraad ah</span>
+              <span className="transform transition group-hover:translate-x-1">→</span>
+            </div>
           </Link>
         </div>
       </section>

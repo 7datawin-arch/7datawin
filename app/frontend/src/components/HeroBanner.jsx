@@ -251,7 +251,7 @@ export default function HeroBanner() {
               key={slide.id + '-desc'}
               className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto mb-8 animate-fadeInUp animation-delay-200 leading-relaxed"
             >
-              {slide.desc}
+              {slide.desc} Macaamiisha 7DataWin waxay sidoo kale helaan buugaag IT iyo koorsooyin AI bilaash ah marka ay data naga iibsadaan.
             </p>
 
             {/* CTA Buttons */}
@@ -263,11 +263,35 @@ export default function HeroBanner() {
                 🚀 Hadda Iibso Data
               </Link>
               <Link
-                to="/pricing"
-                className="backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                to="/courses"
+                className="bg-sky-500 hover:bg-sky-400 text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold transition-all duration-300 shadow-lg shadow-sky-500/30 hover:shadow-sky-400/50 hover:scale-105 hover:-translate-y-1"
               >
-                💰 Fiiri Qiimaha
+                📚 Baro AI & Buugaag
               </Link>
+            </div>
+
+            {/* Hero course/book promo cards */}
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl shadow-2xl shadow-black/20 transform transition duration-500 hover:-translate-y-1 hover:border-emerald-500/40">
+                <div className="flex items-center justify-center mb-4 h-14 w-14 rounded-2xl bg-emerald-500/10 text-emerald-300 text-2xl">🎓</div>
+                <p className="text-sm uppercase tracking-[0.3em] text-emerald-400 mb-2">Koorso AI</p>
+                <h3 className="text-white font-bold text-lg mb-2">40 Cashar AI</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">Koorso bilaash ah oo casharro YouTube ah, bot-building iyo Prompt engineering.</p>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl shadow-2xl shadow-black/20 transform transition duration-500 hover:-translate-y-1 hover:border-sky-500/40">
+                <div className="flex items-center justify-center mb-4 h-14 w-14 rounded-2xl bg-sky-500/10 text-sky-300 text-2xl">📘</div>
+                <p className="text-sm uppercase tracking-[0.3em] text-sky-300 mb-2">Buugaagta</p>
+                <h3 className="text-white font-bold text-lg mb-2">IT & AI Books</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">Buugag qiimo jaban oo computer, programming, iyo AI ku baraya talaabo talaabo.</p>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl shadow-2xl shadow-black/20 transform transition duration-500 hover:-translate-y-1 hover:border-purple-500/40">
+                <div className="flex items-center justify-center mb-4 h-14 w-14 rounded-2xl bg-purple-500/10 text-purple-300 text-2xl">⚡</div>
+                <p className="text-sm uppercase tracking-[0.3em] text-purple-300 mb-2">Data + AI</p>
+                <h3 className="text-white font-bold text-lg mb-2">Hel Labis Khaas ah</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">Iibso data waxay kuu furaysaa koorsooyin AI bilaash ah si aad u sii kobciso xirfadahaaga.</p>
+              </div>
             </div>
           </div>
         </div>

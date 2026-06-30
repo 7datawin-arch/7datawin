@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import BuyData from './pages/BuyData'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
+import Courses from './pages/Courses'
+import Books from './pages/Books'
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/buy-data" element={<BuyData />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/books" element={<Books />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

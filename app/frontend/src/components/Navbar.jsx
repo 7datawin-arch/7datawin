@@ -6,6 +6,8 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Iibso Data', path: '/buy-data' },
   { name: 'Qiimaha', path: '/pricing' },
+  { name: 'Koorsooyin', path: '/courses' },
+  { name: 'Buugaag', path: '/books' },
   { name: 'Xiriir', path: '/contact' },
 ]
 
